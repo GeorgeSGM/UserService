@@ -50,9 +50,9 @@ public class UserManager : IUserManager
         existingUser.FirstName = user.FirstName;
         existingUser.LastName = user.LastName;
 
-        var entry = _context.Update(user);
+        _context.Update(existingUser);
         _context.SaveChanges();
-        return entry.Entity;
+        return existingUser;
     }
 
     /// <inheritdoc />
