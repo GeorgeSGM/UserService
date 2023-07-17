@@ -71,9 +71,9 @@ public static class UserRouter
     private static IResult UpdateUser(User user, IUserManager userManager)
     {
         var updatedUser = userManager.Update(user);
-        return updatedUser is null
-            ? Results.NotFound()
-            : Results.Ok(updatedUser);
+        return updatedUser != null
+            ? Results.Ok(updatedUser)
+            : Results.NotFound();
     }
 
     /// <summary>
